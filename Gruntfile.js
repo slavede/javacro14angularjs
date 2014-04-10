@@ -18,6 +18,45 @@ module.exports = function (grunt) {
   // Define the configuration for all the tasks
   grunt.initConfig({
 
+    express: {
+      dev : {
+        options: {
+          // Override the command used to start the server.
+          // (e.g. 'coffee' instead of the default 'node' to enable CoffeeScript support)
+          cmd: process.argv[0],
+
+          // Will turn into: `node path/to/server.js ARG1 ARG2 ... ARGN`
+          args: ['<%= express.dev.options.server %>', '<%= express.dev.options.port %>'],
+
+          // Setting to `false` will effectively just run `node path/to/server.js`
+          background: true,
+
+          // Called when the spawned server throws errors
+          fallback: function() {},
+
+          // Override node env's PORT
+          port: 3000,
+
+          server : '0.0.0.0',
+
+          // Override node env's NODE_ENV
+          node_env: undefined,
+
+          // Consider the server to be "running" after an explicit delay (in milliseconds)
+          // (e.g. when server has no initial output)
+          delay: 0,
+
+          // Regular expression that matches server output to indicate it is "running"
+          output: ".+",
+
+          // Set --debug
+          debug: true,
+
+          script: 'expressServer.js'
+        }        
+      }
+    },
+
     // Project settings
     yeoman: {
       // configurable paths
@@ -59,6 +98,7 @@ module.exports = function (grunt) {
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       }
+
     },
 
     // The actual grunt server settings
@@ -392,4 +432,6 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+
+  grunt.registerTask('expressServer', [ 'express:dev', 'watch' ]);
 };
