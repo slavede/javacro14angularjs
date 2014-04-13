@@ -2,3 +2,12 @@
 .jumbotron-padding-bottom-fix {
 	padding-bottom: 80px;
 }
+
+/* display pointer in table row */
+.table-hover tbody tr:hover > td {
+  cursor: pointer
+}
+
+.table-title {
+	text-align: center
+}

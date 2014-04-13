@@ -1,1 +1,20 @@
-<h1>Hello there participants</h1>
+<h1 class="table-title">Java Cro 2014 Participants</h1>
+
+<table class="table table-hover">
+	<tr>
+		<th>#</th>
+		<th>Name</th>
+		<th>Surname</th>
+	</tr>
+	<tr ng-repeat="participant in participants">
+		<td>
+			{{ participant.id }}
+		</td>
+		<td>
+			{{ participant.name }}
+		</td>
+		<td>
+			{{ participant.surname }}
+		</td>
+	</tr>
+</table>

@@ -65,7 +65,9 @@ describe('Service: ParticipantService', function () {
 	it ('getParticipant should work perfectly', function() {
 		var getParticipantResult = [];
 
-		getParticipantResult = ParticipantService.getParticipant();
+		ParticipantService.getParticipant().then(function(data) {
+			getParticipantResult = data;
+		});
 
 		expect(getParticipantResult.length).toBe(0);
 

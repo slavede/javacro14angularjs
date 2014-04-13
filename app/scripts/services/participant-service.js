@@ -1,8 +1,9 @@
 angular.module('javaCro14App')
-	.factory('ParticipantService', ['Participant', function (Participant) {
+	.factory('ParticipantService', ['Participant', '$q', function (Participant, $q) {
 		'use strict';
 		return {
 			getParticipant : function (params) {
+				var deferred = $q.defer();
 				console.log('Getting participants with params', params);
 				var apiVersion = '1.0';
 
@@ -13,11 +14,27 @@ angular.module('javaCro14App')
 				params.apiVersion = params.apiVersion !== undefined ? params.apiVersion : apiVersion;
 
 				if (params.participantId !== undefined) {
-					return Participant.get(params);
+					Participant.get(
+						params,
+						function(data) {
+							deferred.resolve(data);
+						},
+						function(data) {
+							deferred.reject(data);
+						});
 				} else {
 					console.log('Getting all participants', params);
-					return Participant.query(params);
+					Participant.query(
+						params,
+						function(data) {
+							deferred.resolve(data);
+						},
+						function(data) {
+							deferred.reject(data);
+						});
 				}
+
+				return deferred.promise;
 			},
 			generateNameHash : function (participant) {
 				if (participant !== undefined && participant.name !== undefined) {
