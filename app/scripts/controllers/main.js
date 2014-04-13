@@ -1,10 +1,9 @@
-'use strict';
-
 angular.module('javaCro14App')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'AngularJS',
-      'Karma',
-      'Jasmine'
-    ];
-  });
+	.controller('MainCtrl', function ($scope) {
+		'use strict';
+		$scope.awesomeThings = [
+			'AngularJS',
+			'Karma',
+			'Jasmine'
+		];
+	});

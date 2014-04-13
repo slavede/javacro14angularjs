@@ -17,7 +17,7 @@ module.exports = function(config) {
 			'karma-jasmine',
 			'karma-phantomjs-launcher',
 			// 'karma-requirejs',
-			// 'karma-chrome-launcher'
+			'karma-chrome-launcher'
 		],
 
 		// list of files / patterns to load in the browser
@@ -66,7 +66,7 @@ module.exports = function(config) {
 		// - PhantomJS
 		// - IE (only Windows)
 
-		browsers: ['PhantomJS'],
+		browsers: ['Chrome'],
 
 
 		// Continuous Integration mode
