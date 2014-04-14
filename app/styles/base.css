@@ -5,7 +5,7 @@
 
 /* display pointer in table row */
 .table-hover tbody tr:hover > td {
-  cursor: pointer
+	cursor: pointer
 }
 
 .table-title {

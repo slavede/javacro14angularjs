@@ -1,12 +1,24 @@
 <h1 class="table-title">Java Cro 2014 Participants</h1>
 
+Filter by age:
+<form class="form-inline">
+	<div class="form-group">
+		<label for="exampleInputEmail1">Minimum age</label>
+		<input type="text" class="form-control" placeholder="Enter minimum age" ng-model="ageFilter.min">
+	</div>
+	<div class="form-group">
+		<label for="exampleInputEmail1">Maximum age</label>
+		<input type="text" class="form-control" placeholder="Enter maximum age" ng-model="ageFilter.max">
+	</div>
+</form>
+<br />
 <table class="table table-hover">
 	<tr>
 		<th>#</th>
 		<th>Name</th>
 		<th>Surname</th>
 	</tr>
-	<tr ng-repeat="participant in participants">
+	<tr ng-repeat="participant in participants | ageRange:'age':ageFilter.min:ageFilter.max">
 		<td>
 			{{ participant.id }}
 		</td>
