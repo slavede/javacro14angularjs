@@ -11,3 +11,11 @@
 .table-title {
 	text-align: center
 }
+
+/* center participant details */
+
+.participant-details-container {
+	width: 600px;
+	margin: auto;
+	padding-left: 200px;
+}

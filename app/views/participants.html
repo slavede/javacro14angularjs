@@ -18,7 +18,7 @@ Filter by age:
 		<th>Name</th>
 		<th>Surname</th>
 	</tr>
-	<tr ng-repeat="participant in participants | ageRange:'age':ageFilter.min:ageFilter.max">
+	<tr ng-repeat="participant in participants | ageRange:'age':ageFilter.min:ageFilter.max" ng-click="selectParticipant(participant.id)">
 		<td>
 			{{ participant.id }}
 		</td>
@@ -30,3 +30,5 @@ Filter by age:
 		</td>
 	</tr>
 </table>
+
+<participant-details ng-show="selectedParticipant" participant="selectedParticipant"></participant-details>
