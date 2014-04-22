@@ -53,8 +53,11 @@ describe('Service: ParticipantService', function () {
 
 		expect(hashName).not.toBeDefined('If object doesn\'t have name hash should be undefined');
 
+
 		hashName = ParticipantService.generateNameHash({name:nameToTest});
+
 		expectedHashName = CryptoJS.SHA256(nameToTest).toString(CryptoJS.enc.Base64);
+
 
 		expect(hashName).toBe(expectedHashName);
 	});

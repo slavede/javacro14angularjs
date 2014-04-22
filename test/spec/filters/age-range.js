@@ -75,6 +75,7 @@ describe('Filter: ageRange', function () {
 	beforeEach(inject(function($rootScope, _ageRangeFilter_, $compile) {
 		scope = $rootScope.$new();
 		ageRangeFilter = _ageRangeFilter_;
+
 		jasmine.addMatchers(customMatcher);
 
 		scope.ageFilter = {};
@@ -97,7 +98,7 @@ describe('Filter: ageRange', function () {
 
 		var filteredDataByMin = ageRangeFilter(mockedData, 'age', 35);
 
-		expect(filteredDataByMin.length).toBe(1);
+		expect(filteredDataByMin.length).toBe(1, 'There should be only one filtered participant');
 
 		expect(filteredDataByMin[0]).toBeSameParticipant(mockedData[1]);
 
