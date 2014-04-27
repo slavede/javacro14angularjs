@@ -26,8 +26,8 @@
 
     <div class="header">
       <ul class="nav nav-pills pull-right">
-        <li class="active"><a ng-href="#">Home</a></li>
-        <li><a ng-href="#/participants">Participants</a></li>
+        <li ng-class="{active : tabActive.home}"><a ng-href="#">Home</a></li>
+        <li ng-class="{active : tabActive.participants}"><a ng-href="#/participants">Participants</a></li>
         <li><a ng-href="#/about">About</a></li>
         <li><a ng-href="#/author">About Author</a></li>
       </ul>
