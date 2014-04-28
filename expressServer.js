@@ -44,15 +44,12 @@ var express = require('express'),
 
 // console.log("Args", args);
 
-app.use('/', express.static(__dirname + '/app'));
+app.use('/app', express.static(__dirname + '/app'));
+app.use('/coverage', express.static(__dirname + '/coverage/PhantomJS 1.9.7 (Linux)'));
 
 var server = app.listen(args[1], args[2], function() {
 	console.log('Express server listening on host %s port %d', server.address().address, server.address().port);
 });
-
-// app.get('/', function(req, res){
-// 	res.sendfile('app/index.html');
-// });
 
 
 app.get('/api/1.0/participant/:id?', function(req, res) {
