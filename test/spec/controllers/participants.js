@@ -3,7 +3,7 @@ describe('Controller: ParticipantsCtrl', function () {
 	// load the controller's module
 	beforeEach(module('javaCro14App'));
 
-	var ParticipantsCtrl, scope, $httpBackend, mockedData;
+	var ParticipantsCtrl, scope, $httpBackend, mockedData, spy;
 
 	// Initialize the controller and a mock scope
 	beforeEach(inject(function ($controller, $rootScope, _$httpBackend_) {
@@ -12,6 +12,7 @@ describe('Controller: ParticipantsCtrl', function () {
 		ParticipantsCtrl = $controller('ParticipantsCtrl', {
 			$scope: scope
 		});
+
 		$httpBackend = _$httpBackend_;
 
 		mockedData = [{

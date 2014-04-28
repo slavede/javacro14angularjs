@@ -1,11 +1,11 @@
 describe('Service: ParticipantService', function () {
 	'use strict';
-	var ParticipantService, $httpBackend, mockedData;
+	var ParticipantService, $httpBackend, mockedData, Participant;
 
 	// we load module first
 	beforeEach(module('javaCro14App'));
 
-	beforeEach(angular.mock.inject( function(_ParticipantService_, _$httpBackend_) {
+	beforeEach(angular.mock.inject( function(_ParticipantService_, _$httpBackend_, _Participant_) {
 		ParticipantService = _ParticipantService_;
 		$httpBackend = _$httpBackend_;
 
@@ -24,6 +24,10 @@ describe('Service: ParticipantService', function () {
 			company : 'Google'
 		}];
 
+		Participant = _Participant_;
+
+		// Jasmine spy - over Participant and call original method
+		spyOn(Participant, 'query').and.callThrough();
 		$httpBackend.when('GET', '/api/1.0/participant').respond(mockedData);
 
 	}));
@@ -58,7 +62,6 @@ describe('Service: ParticipantService', function () {
 
 		expectedHashName = CryptoJS.SHA256(nameToTest).toString(CryptoJS.enc.Base64);
 
-
 		expect(hashName).toBe(expectedHashName);
 	});
 
@@ -71,6 +74,8 @@ describe('Service: ParticipantService', function () {
 		ParticipantService.getParticipant().then(function(data) {
 			getParticipantResult = data;
 		});
+
+		expect(Participant.query).toHaveBeenCalled();
 
 		expect(getParticipantResult.length).toBe(0);
 
