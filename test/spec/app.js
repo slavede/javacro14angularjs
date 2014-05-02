@@ -20,4 +20,22 @@ describe('App: App', function () {
 		$timeout.flush(1);
 		expect($rootScope.loadedLogo).toBe(true, 'After additional milisecond (with previous 1999) loadedLogo should become true');
 	});
+
+	it ('should prefix exception message correctly', function() {
+		$timeout(function() {
+			throw {
+				name : 'Custom Exception',
+				message : 'Custom Exception Message'
+			};
+		});
+		
+		try {
+			$timeout.flush();
+		} catch (e) {
+			// check if exceptionHandler prefixed message
+			expect(e.message).toMatch(/^\[JavaCro14App\]/, 'Each exception should be prefixed');
+		}
+		
+		// console.log($exceptionHandler);
+	});
 });

@@ -7,7 +7,7 @@ angular
 		'ngSanitize',
 		'ngRoute'
 	])
-	.config(['$routeProvider', function ($routeProvider) {
+	.config(['$routeProvider', '$exceptionHandlerProvider', function ($routeProvider, $exceptionHandlerProvider) {
 		$routeProvider
 			.when('/', {
 				templateUrl: 'views/main.html',
@@ -20,6 +20,7 @@ angular
 			.otherwise({
 				redirectTo: '/'
 			});
+		$exceptionHandlerProvider.mode('log');
 	}])
 	.run(['$rootScope', '$timeout', function($rootScope, $timeout) {
 		$rootScope.tabActive = {
@@ -49,6 +50,10 @@ angular
 				}
 			});
 		});
-
-
-	}]);
+	// for debugging exceptions in your code
+	}]).factory('$exceptionHandler', function () {
+		return function (exception, cause) {
+			exception.message = '[JavaCro14App] ' + exception.message;
+			throw exception;
+		};
+  });

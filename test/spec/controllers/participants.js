@@ -7,7 +7,6 @@ describe('Controller: ParticipantsCtrl', function () {
 
 	// Initialize the controller and a mock scope
 	beforeEach(inject(function ($controller, $rootScope, _$httpBackend_, _$log_) {
-		// console.log('beforeEach');
 		scope = $rootScope.$new();
 		ParticipantsCtrl = $controller('ParticipantsCtrl', {
 			$scope: scope

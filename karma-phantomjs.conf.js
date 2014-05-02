@@ -18,19 +18,7 @@ module.exports = function(config) {
 			'karma-phantomjs-launcher',
 			// 'karma-requirejs',
 			// 'karma-chrome-launcher'
-			'karma-coverage'
 		],
-
-		reporters: ['progress', 'coverage'],
-
-		preprocessors : {
-			'app/scripts/**/*.js' : ['coverage']
-		},
-
-		coverageReporter : {
-			type : 'html',
-			dir : 'coverage/'
-		},
 
 		// list of files / patterns to load in the browser
 		files: [
