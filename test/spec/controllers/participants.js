@@ -3,10 +3,10 @@ describe('Controller: ParticipantsCtrl', function () {
 	// load the controller's module
 	beforeEach(module('javaCro14App'));
 
-	var ParticipantsCtrl, scope, $httpBackend, mockedData, spy;
+	var ParticipantsCtrl, scope, $httpBackend, mockedData, $log;
 
 	// Initialize the controller and a mock scope
-	beforeEach(inject(function ($controller, $rootScope, _$httpBackend_) {
+	beforeEach(inject(function ($controller, $rootScope, _$httpBackend_, _$log_) {
 		// console.log('beforeEach');
 		scope = $rootScope.$new();
 		ParticipantsCtrl = $controller('ParticipantsCtrl', {
@@ -31,6 +31,8 @@ describe('Controller: ParticipantsCtrl', function () {
 		}];
 
 		$httpBackend.when('GET', '/api/1.0/participant').respond(mockedData);
+
+		$log = _$log_;
 	}));
 
 	//
@@ -52,11 +54,16 @@ describe('Controller: ParticipantsCtrl', function () {
 
 		$httpBackend.flush();
 
+		expect($log.info.logs.length).toBe(1, 'There should be 1 log entr after getting participants');
+		expect($log.info.logs[0]).toMatch(/^Got participants.*/, 'Log entry should start with "Got participants"');
+
 		expect(scope.participants.length).
 			toBe(2, 'After ajax is done there should be 2 participants');
 
 		expect(scope.selectParticipant).
 			toBeDefined('Scope should have selectParticipant property defined');
+
+
 	});
 
 	//

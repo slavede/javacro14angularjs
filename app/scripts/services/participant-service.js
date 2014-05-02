@@ -1,10 +1,10 @@
 angular.module('javaCro14App')
-	.factory('ParticipantService', ['Participant', '$q', function (Participant, $q) {
+	.factory('ParticipantService', ['Participant', '$q', '$log', function (Participant, $q, $log) {
 		'use strict';
 		return {
 			getParticipant : function (params) {
 				var deferred = $q.defer();
-				console.log('Getting participants with params', params);
+				$log.log('Getting participants with params', params);
 				var apiVersion = '1.0';
 
 				if (params === undefined) {
@@ -23,7 +23,7 @@ angular.module('javaCro14App')
 							deferred.reject(data);
 						});
 				} else {
-					console.log('Getting all participants', params);
+					$log.log('Getting all participants', params);
 					Participant.query(
 						params,
 						function(data) {

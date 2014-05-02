@@ -1,17 +1,16 @@
 angular.module('javaCro14App')
-	.controller('ParticipantsCtrl', ['$scope', 'ParticipantService',
-		function ($scope, ParticipantService) {
+	.controller('ParticipantsCtrl', ['$scope', '$log', 'ParticipantService',
+		function ($scope, $log, ParticipantService) {
 			'use strict';
 			$scope.participants = [];
 
-			// console.log($scope.participants);
 			ParticipantService.getParticipant().then(
 				function(data) {
-					console.log('Success', data);
+					$log.info('Got participants', data);
 					$scope.participants = data;
 				},
 				function(data) {
-					console.log('Error', data);
+					$log.error('Error while getting participants', data);
 				}
 			);
 
