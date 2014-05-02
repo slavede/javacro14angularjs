@@ -109,7 +109,6 @@ describe('Filter: ageRange', function () {
 		// expect(filteredDataByMin[0].age).toBe(mockedData[1].age);
 		// expect(filteredDataByMin[0].company).toBe(mockedData[1].company);
 
-		console.log(filteredDataByMin);
 	});
 
 	//

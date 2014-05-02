@@ -7,7 +7,7 @@ angular
 		'ngSanitize',
 		'ngRoute'
 	])
-	.config(function ($routeProvider) {
+	.config(['$routeProvider', function ($routeProvider) {
 		$routeProvider
 			.when('/', {
 				templateUrl: 'views/main.html',
@@ -20,12 +20,17 @@ angular
 			.otherwise({
 				redirectTo: '/'
 			});
-	})
-	.run(function($rootScope) {
+	}])
+	.run(['$rootScope', '$timeout', function($rootScope, $timeout) {
 		$rootScope.tabActive = {
 			home : true,
 			participants : false
 		};
+		$rootScope.loadedLogo = false;
+
+		$timeout(function() {
+			$rootScope.loadedLogo = true;
+		}, 2000);
 		
 		$rootScope.$on('$locationChangeStart', function(scope, next, current) {
 			var splittedNext = next.split('#/');
@@ -44,4 +49,6 @@ angular
 				}
 			});
 		});
-	});
+
+
+	}]);

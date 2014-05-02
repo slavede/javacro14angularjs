@@ -29,7 +29,6 @@ describe('Directive: ParticipantDetails', function () {
 		var container,
 			containerHeader,
 			rows;
-		console.log('testing Element', element);
 
 		container = element.find('.participant-details-container');
 

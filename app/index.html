@@ -28,12 +28,12 @@
       <ul class="nav nav-pills pull-right">
         <li ng-class="{active : tabActive.home}"><a ng-href="#">Home</a></li>
         <li ng-class="{active : tabActive.participants}"><a ng-href="#/participants">Participants</a></li>
-        <li><a ng-href="#/about">About</a></li>
         <li><a ng-href="#/author">About Author</a></li>
       </ul>
       <img src="images/java_cro.png" alt="JavaCro14">
     </div>
     <div class="container" ng-view=""></div>
+    <img ng-class="{'logo-display': loadedLogo}" class="logo-display-initial" src="images/amphinicy_technologies.png" alt="Amphinicy Technologies">
 
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
