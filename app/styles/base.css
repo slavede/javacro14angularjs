@@ -13,9 +13,25 @@
 }
 
 /* center participant details */
-
 .participant-details-container {
 	width: 600px;
 	margin: auto;
 	padding-left: 200px;
+}
+
+/* hidden message animations*/
+.message-display-initial {
+	-webkit-transition: all linear 0.5s;
+	-moz-transition: all linear 0.5s;
+	-o-transition: all linear 0.5s;
+	transition: all linear 0.5s;
+	opacity: 1;
+}
+
+.message-hide {
+	-webkit-transition: all linear 0.5s;
+	-moz-transition: all linear 0.5s;
+	-o-transition: all linear 0.5s;
+	transition: all linear 0.5s;
+	opacity: 0;
 }
