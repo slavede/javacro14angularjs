@@ -17,10 +17,14 @@ angular
 				templateUrl: 'views/participants.html',
 				controller: 'ParticipantsCtrl'
 			})
+			.when('/about-author', {
+				templateUrl: 'views/about_author.html',
+				controller: 'AboutAuthorCtrl'
+			})
 			.otherwise({
 				redirectTo: '/'
 			});
-		$exceptionHandlerProvider.mode('log');
+		// $exceptionHandlerProvider.mode('log');
 	}])
 	.run(['$rootScope', '$timeout', function($rootScope, $timeout) {
 		$rootScope.tabActive = {

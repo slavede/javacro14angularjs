@@ -28,7 +28,7 @@
       <ul class="nav nav-pills pull-right">
         <li ng-class="{active : tabActive.home}"><a ng-href="#">Home</a></li>
         <li ng-class="{active : tabActive.participants}"><a ng-href="#/participants">Participants</a></li>
-        <li><a ng-href="#/author">About Author</a></li>
+        <li ng-class="{active : tabActive['about-author']}"><a ng-href="#/about-author">About Author</a></li>
       </ul>
       <img src="images/java_cro.png" alt="JavaCro14">
     </div>
@@ -59,6 +59,7 @@
         
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/participants.js"></script>
+        <script src="scripts/controllers/about-author.js"></script>
 
         <script src="scripts/directives/participant-details.js"></script>
 
