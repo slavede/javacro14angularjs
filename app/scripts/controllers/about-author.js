@@ -11,10 +11,10 @@ angular.module('javaCro14App')
 				twitter : 'slaventomac'
 			};
 
-			$scope.biography = 'Slaven Tomac got Master’s degree on Faculty of Electrical Engineering and Computing in Zagreb. ' +
-				'His main interest is web development which he has been working on for 3 last year in Amphinicy Technologies (frontend and backend). ' +
+			$scope.biography = 'Slaven Tomac got his Master’s degree on Faculty of Electrical Engineering and Computing in Zagreb. ' +
+				'His main interest is web development which he has been working on for 3 last year at Amphinicy Technologies (frontend and backend). ' +
 				'Slaven’s expertise are Perl, Python, jQuery and JavaScript (jQuery and AngularJS). ' +
-				'Besides web development he has interest and experience in Android and Java development. ' +
-				'He is a strong working software engineer always in seek for new technologies and new interesting programming languages to learn.';
+				'Besides web development he has an interest and experience in Android and Java development. ' +
+				'He is a hard working software engineer always seeking for new technologies and new interesting programming languages to learn.';
 		}
 	]);
