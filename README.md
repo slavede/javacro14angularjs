@@ -2,6 +2,10 @@
 
 Session I gave at JavaCro14 about unit testing in AngularJS has simple project that has everything implemented that was said at session.
 
+Here's presentation:
+
+http://www.slideshare.net/slaventomac/slaven-tomac-unit-testing-in-angular-js
+
 ### Installation ###
 
 ```javascript
