@@ -20,3 +20,18 @@ bower install
 grunt expressServerLocal (runs it on localhost)
 grunt expressServerRemote (runs it on 0.0.0.0)
 ```
+
+### Running tests ###
+There are tree main configuration files for running tests:
+
+<ul>
+  <li>karma-chrome.conf.js - runs tests on Chrome (without coverage report)</li>
+  <li>karma-phantomjs.conf.js - runs tests on PhantomJS (without coverage report)</li>
+  <li>karma-jenkins.conf.js - runs tests on PhantomJS (with coverage report)</li>
+<ul>
+
+#### How to run tests ####
+After npm install, karma will be installed in your node_modules folder so you should run them with:
+```javascript
+<path_to_karma_bin> start <path_to_configuration_file>
+```
